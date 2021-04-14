@@ -1,0 +1,53 @@
+.loginContainer {
+    background: url("../../assets/imgs/login.jpg") no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100%;
+}
+
+.loginMain {
+    position: absolute;
+    top: 28vh;
+    left: 28%;
+    width: 44%;
+    border-radius: 5px;
+    justify-content: space-between;
+    display: flex;
+}
+
+.loginLeftPart {
+    width: 65%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius:5px 0px 0px 5px;
+    padding-top: 90px;
+}
+
+.loginLeftPartTitle {
+    font-size: 48px;
+    font-weight: 600;
+    color: #757575;
+}
+
+.loginLeftPartVersion {
+    margin-left: 10px;
+
+    font-size: 18px;
+    color: #757575;
+}
+
+.loginLeftPartTagTxt {
+    font-size: 14px;
+    color: #757575;
+    margin-bottom: 90px;
+}
+
+.loginRightPart {
+    width: 35%;
+    background: #FFF;
+    border-radius:0px 5px 5px 0px;
+}
+
+.loginRightPartForm {
+    padding: 60px 0px 0 10%;
+}
