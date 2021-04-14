@@ -1,0 +1,18 @@
+.mainApp {
+    height: 100%;
+}
+
+.mainHeader {
+    height: 60px;
+    background-color: #fff;
+    padding: 0;
+    
+}
+
+.mainHeaderTitle {
+    color: #fff;
+    width: 200px;
+    background-color: #001529;
+    text-align: center;
+    border-bottom: 1px solid #fff;
+}

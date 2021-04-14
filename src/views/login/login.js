@@ -8,6 +8,11 @@ class Login extends React.Component {
               span: 20,
             },
         };
+
+        const onFinish = (values) => {
+            console.log('Success:', values);
+            this.props.history.push('/main')
+        };
         
         return (
             <div className="loginContainer">
@@ -22,6 +27,7 @@ class Login extends React.Component {
                         <Form
                             className="loginRightPartForm"
                             {...layout}
+                            onFinish={onFinish}
                             name="basic"
                             initialValues={{
                                 remember: true,
@@ -32,11 +38,11 @@ class Login extends React.Component {
                                 rules={[
                                 {
                                     required: true,
-                                    message: 'Please input your username!',
+                                    message: '请输入账号!',
                                 },
                                 ]}
                             >
-                                <Input placeholder="账号"/>
+                                <Input placeholder="请输入账号"/>
                             </Form.Item>
 
                             <Form.Item
@@ -44,11 +50,11 @@ class Login extends React.Component {
                                 rules={[
                                 {
                                     required: true,
-                                    message: 'Please input your password!',
+                                    message: '请输入密码!',
                                 },
                                 ]}
                             >
-                                <Input.Password placeholder="密码"/>
+                                <Input.Password placeholder="请输入密码"/>
                             </Form.Item>
 
                             <Form.Item>
