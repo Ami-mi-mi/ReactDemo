@@ -11,7 +11,7 @@ class Login extends React.Component {
 
         const onFinish = (values) => {
             console.log('Success:', values);
-            this.props.history.push('/main')
+            this.props.history.push('/')
         };
         
         return (

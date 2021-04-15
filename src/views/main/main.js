@@ -1,8 +1,13 @@
 import React from 'react';
+import {Route, Switch, Link} from 'react-router-dom';
 import { Layout } from 'antd';
 import './main.css';
+import SiderBar from './components/siderBar/index';
 
-const { Header, Footer, Sider, Content } = Layout;
+import Option1 from './components/option1';
+import Option2 from './components/option2';
+
+const { Header, Sider, Content } = Layout;
 
 class Main extends React.Component {
     render() {
@@ -12,8 +17,15 @@ class Main extends React.Component {
                     <div className="mainHeaderTitle">React Demo</div>
                 </Header>
                 <Layout>
-                    <Sider>Sider</Sider>
-                    <Content>Content</Content>
+                    <Sider>
+                        <SiderBar/>
+                    </Sider>
+                    <Content>
+                            <Switch>
+                                <Route path="/option1" component={Option1} exact></Route>
+                                <Route path="/option2" component={Option2} exact></Route>
+                            </Switch>
+                    </Content>
                 </Layout>
             </Layout>
         )

@@ -7,9 +7,9 @@ import Main from './views/main/main';
 class App extends Component {
 	render() {
 		return (
-			<HashRouter>
+			<HashRouter basename="/echo">
 				<Route path='/login' component={Login}></Route>
-				<Route path='/main' component={Main}></Route>
+				<Route path='/' component={Main}></Route>
 			</HashRouter>
 		);
 	}
