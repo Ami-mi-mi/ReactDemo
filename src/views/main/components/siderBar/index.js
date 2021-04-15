@@ -1,38 +1,43 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { Menu } from 'antd';
-import {
-  PieChartOutlined,
-  DesktopOutlined,
-  ContainerOutlined,
-} from '@ant-design/icons';
+
+import MenuData from '../../../router/index';
+
+const { SubMenu } = Menu;
 
 class SiderBar extends React.Component {
-    state = {
-        collapsed: false,
+    renderSubMenu = (item) => {
+        return (
+            <SubMenu key={item.key} title={item.title}>
+                {
+                    item.children.map(itemSon => {
+                        return itemSon.children && itemSon.children.length > 0 ? this.renderSubMenu(itemSon) : this.renderMenuItem(itemSon);
+                    })
+                }
+            </SubMenu>
+            
+        );
+    }
+
+    renderMenuItem = (item) => {
+        return (
+            <Menu.Item key={item.path}>
+                <Link to={item.path}>{item.title}</Link>
+            </Menu.Item>
+        );
     };
-    
-    toggleCollapsed = () => {
-        this.setState({
-            collapsed: !this.state.collapsed,
-        });
-    };
+
     render() {
         return (
             <div style={{ width: 200 }}>
                 <Menu
-                defaultSelectedKeys={['1']}
-                defaultOpenKeys={['sub1']}
+                defaultSelectedKeys={['/option1']}
+                defaultOpenKeys={['option1']}
                 mode="inline"
                 theme="dark"
-                inlineCollapsed={this.state.collapsed}
                 >
-                    <Menu.Item key="1" icon={<PieChartOutlined />}>
-                        <Link to="/option1">option1</Link>
-                    </Menu.Item>
-                    <Menu.Item key="2" icon={<DesktopOutlined />}>
-                        <Link to="/option2">option2</Link>
-                    </Menu.Item>
+                    {MenuData && MenuData.map(item => item.children && item.children.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item))}
                 </Menu>
             </div>
         );
