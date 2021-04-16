@@ -4,13 +4,20 @@ import { Layout } from 'antd';
 import './main.css';
 import SiderBar from './components/siderBar/index';
 
-import Option1 from './components/option1';
-import Option2 from './components/option2';
-import Option3 from './components/option3';
+import MenuData from '../router/index';
 
 const { Header, Sider, Content } = Layout;
 
 class Main extends React.Component {
+
+    renderRouteComponent = (RouteInfo) => {
+        return RouteInfo.children && RouteInfo.children.length > 0 ? RouteInfo.children.map(item => this.renderRouteComponent(item)) : this.renderRouteInfo(RouteInfo);
+    }
+
+    renderRouteInfo = (menuRouteData) => {
+        return (<Route path={menuRouteData.path} key={menuRouteData.path} component={menuRouteData.component} exact></Route>);
+    }
+
     render() {
         return (
             <Layout className="mainApp">
@@ -23,9 +30,9 @@ class Main extends React.Component {
                     </Sider>
                     <Content>
                             <Switch>
-                                <Route path="/option1" component={Option1} exact></Route>
-                                <Route path="/option2" component={Option2} exact></Route>
-                                <Route path="/option3" component={Option3} exact></Route>
+                                {
+                                    MenuData && MenuData.map(item => this.renderRouteComponent(item))
+                                }
                             </Switch>
                     </Content>
                 </Layout>

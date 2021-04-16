@@ -29,11 +29,10 @@ class SiderBar extends React.Component {
     };
 
     render() {
+        console.log(window.location)
         return (
             <div style={{ width: 200 }}>
                 <Menu
-                defaultSelectedKeys={['/option1']}
-                defaultOpenKeys={['option1']}
                 mode="inline"
                 theme="dark"
                 >
