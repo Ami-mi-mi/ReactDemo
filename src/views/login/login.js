@@ -1,5 +1,7 @@
 import React from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
+import $Api from './api';
+
 import './login.css';
 class Login extends React.Component {
     render() {
@@ -10,8 +12,15 @@ class Login extends React.Component {
         };
 
         const onFinish = (values) => {
-            console.log('Success:', values);
-            this.props.history.push('/')
+            const {loginName, password} = values;
+
+            $Api.Login({loginName, password}).then(data => {
+
+                const token = data.rows.token || '';
+                localStorage.setItem('token', token);
+                this.props.history.push('/option1');
+            });
+            
         };
         
         return (
@@ -34,7 +43,7 @@ class Login extends React.Component {
                             }}
                             >
                             <Form.Item
-                                name="username"
+                                name="loginName"
                                 rules={[
                                 {
                                     required: true,
