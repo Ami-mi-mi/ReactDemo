@@ -1,11 +1,11 @@
 import $Https from '@Http/portalHttp.js';
-import urlMap from '@Http/portalUrlMap.js';
+import * as urlMap from '@Http/portalUrlMap.js';
 import querystring from 'querystring';
 
 function Login(params) {
-    return $Https.post(urlMap.Login.login, querystring.stringify(params))
+    return $Https.post(urlMap.SSO.login, querystring.stringify(params))
 }
 
-export default {
+export {
     Login
 }

@@ -1,12 +1,7 @@
-const COMMON = {
-
-}
-
-const Login = {
+const SSO = {
     login: '/sso/login'
 }
 
-export default {
-    COMMON,
-    Login
-}
+export {
+     SSO
+};

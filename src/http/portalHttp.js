@@ -6,6 +6,10 @@ const httpService = axios.create({
 
 //请求拦截器
 httpService.interceptors.request.use(config => {
+    if (getToken()) {
+        config.headers.common['Authorization'] = 'Bearer ' + getToken();
+    }
+    
     return config;
 }, error => {
     return Promise.reject(error);
@@ -13,7 +17,6 @@ httpService.interceptors.request.use(config => {
 
 //响应拦截器
 httpService.interceptors.response.use(res => {
-    console.log()
     if(res.data.code !== '0') {
         return Promise.reject(new Error(res.msg));
     } 
@@ -23,5 +26,9 @@ httpService.interceptors.response.use(res => {
 }, err => {
     return Promise.reject(err);
 });
+
+function getToken() {
+    return localStorage.getItem('token');
+}
 
 export default httpService;

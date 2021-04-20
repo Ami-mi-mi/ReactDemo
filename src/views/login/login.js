@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
-import $Api from './api';
+import * as $Api from './api';
 
 import './login.css';
 class Login extends React.Component {
