@@ -1,6 +1,6 @@
-import Option1 from '../main/components/option1';
-import Option2 from '../main/components/option2';
-import Option3 from '../main/components/option3';
+import Option1 from '../views/main/components/option1';
+import Option2 from '../views/main/components/option2';
+import Option3 from '../views/main/components/option3';
 
 const routes = [
     {

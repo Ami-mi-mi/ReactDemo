@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { Menu } from 'antd';
 
-import MenuData from '../../../router/index';
+import MenuData from '@Router/index';
 
 const { SubMenu } = Menu;
 

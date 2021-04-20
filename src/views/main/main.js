@@ -4,7 +4,7 @@ import { Layout } from 'antd';
 import './main.css';
 import SiderBar from './components/siderBar/index';
 
-import MenuData from '../router/index';
+import MenuData from '@Router/index';
 
 const { Header, Sider, Content } = Layout;
 
