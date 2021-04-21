@@ -19,7 +19,7 @@ class Login extends React.Component {
 
                 const token = data.rows.token || '';
                 authController.setToken(token);
-                this.props.history.push('/main/option1');
+                this.props.history.push('/my-order');
             });
             
         };

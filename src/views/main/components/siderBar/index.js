@@ -2,14 +2,26 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { Menu } from 'antd';
 
-import MenuData from '@Router/index';
-
 const { SubMenu } = Menu;
 
 class SiderBar extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            MenuData: []
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            MenuData: nextProps.siderMenu
+        });
+    }
+
     renderSubMenu = (item) => {
         return (
-            <SubMenu key={item.key} title={item.title}>
+            <SubMenu key={item.id} title={item.name}>
                 {
                     item.children.map(itemSon => {
                         return itemSon.children && itemSon.children.length > 0 ? this.renderSubMenu(itemSon) : this.renderMenuItem(itemSon);
@@ -22,8 +34,8 @@ class SiderBar extends React.Component {
 
     renderMenuItem = (item) => {
         return (
-            <Menu.Item key={item.path}>
-                <Link to={item.path}>{item.title}</Link>
+            <Menu.Item key={item.id}>
+                <Link to={item.actionUrl}>{item.name}</Link>
             </Menu.Item>
         );
     };
@@ -35,7 +47,7 @@ class SiderBar extends React.Component {
                 mode="inline"
                 theme="dark"
                 >
-                    {MenuData && MenuData.map(item => item.children && item.children.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item))}
+                    {this.state.MenuData && this.state.MenuData.map(item => item.children && item.children.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item))}
                 </Menu>
             </div>
         );
