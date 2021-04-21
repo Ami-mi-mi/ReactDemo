@@ -3,6 +3,8 @@
 }
 
 .mainHeader {
+    position: relative;
+    flex-shrink: 0;
     height: 60px;
     background-color: #fff;
     padding: 0;
@@ -15,4 +17,16 @@
     background-color: #001529;
     text-align: center;
     border-bottom: 1px solid #fff;
+    float: left;
+}
+
+.mainHeaderInfoBox {
+    float: right;
+    height: 100%;
+    padding-right: 10px;
+    color: #909399;
+}
+
+.mainHeaderInfoAgentId {
+    margin-right: 10px;
 }
