@@ -29,7 +29,6 @@ class SiderBar extends React.Component {
     };
 
     render() {
-        console.log(window.location)
         return (
             <div style={{ width: 200 }}>
                 <Menu

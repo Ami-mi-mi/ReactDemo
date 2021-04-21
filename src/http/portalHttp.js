@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {authController} from '@Utils/authController';
 
 const httpService = axios.create({
     baseURL: '/portal'
@@ -6,10 +7,10 @@ const httpService = axios.create({
 
 //请求拦截器
 httpService.interceptors.request.use(config => {
-    if (getToken()) {
-        config.headers.common['Authorization'] = 'Bearer ' + getToken();
+    if (authController.getToken()) {
+        config.headers.common['Authorization'] = 'Bearer ' + authController.getToken();
     }
-    
+
     return config;
 }, error => {
     return Promise.reject(error);
@@ -26,9 +27,5 @@ httpService.interceptors.response.use(res => {
 }, err => {
     return Promise.reject(err);
 });
-
-function getToken() {
-    return localStorage.getItem('token');
-}
 
 export default httpService;

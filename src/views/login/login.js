@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import * as $Api from './api';
+import {authController} from '@Utils/authController';
 
 import './login.css';
 class Login extends React.Component {
@@ -17,8 +18,8 @@ class Login extends React.Component {
             $Api.Login({loginName, password}).then(data => {
 
                 const token = data.rows.token || '';
-                localStorage.setItem('token', token);
-                this.props.history.push('/option1');
+                authController.setToken(token);
+                this.props.history.push('/main/option1');
             });
             
         };
