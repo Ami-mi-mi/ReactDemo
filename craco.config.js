@@ -8,7 +8,8 @@ module.exports = {
             '@Http' : path.resolve('src/http'),
             '@Views' : path.resolve('src/views'),
             '@Router' : path.resolve('src/router'),
-            '@Utils' : path.resolve('src/utils')
+            '@Utils' : path.resolve('src/utils'),
+            '@MainComponents' : path.resolve('src/views/main/components')
         }
     }
 }

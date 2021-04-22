@@ -1,13 +1,14 @@
 //我的工单
-import myOrder from '@Views/main/components/myOrder/myOrder'
+import myOrder from '@MainComponents/myOrder/myOrder'
 //受理工单
-import resourceApply from '@Views/main/components/acceptOrderManage/resourceApply/resourceApply'
-import ccodBusinessApply from '@Views/main/components/acceptOrderManage/ccodBusinessApply/ccodBusinessApply'
-import ccodAccoutAdjust from '@Views/main/components/acceptOrderManage/ccodAccoutAdjust/ccodAccoutAdjust'
+import resourceApply from '@MainComponents/acceptOrderManage/resourceApply/resourceApply'
+import ccodBusinessApply from '@MainComponents/acceptOrderManage/ccodBusinessApply/ccodBusinessApply'
+import ccodAccoutAdjust from '@MainComponents/acceptOrderManage/ccodAccoutAdjust/ccodAccoutAdjust'
 //结算工单
-import bottomTicketManage from '@Views/main/components/settlementOrderManage/bottomTicketManage/bottomTicketManage'
-import balanceAccountManage from '@Views/main/components/settlementOrderManage/balanceAccountManage/balanceAccountManage'
-import invoiceManage from '@Views/main/components/settlementOrderManage/invoiceManage/invoiceManage'
+import bottomTicketManage from '@MainComponents/settlementOrderManage/bottomTicketManage/bottomTicketManage'
+import balanceAccountManage from '@MainComponents/settlementOrderManage/balanceAccountManage/balanceAccountManage'
+import invoiceManage from '@MainComponents/settlementOrderManage/invoiceManage/invoiceManage'
+import costPaymentManage from '@MainComponents/settlementOrderManage/costPaymentManage/costPaymentManage'
 
 const routes = {
     '/my-order': myOrder,
@@ -16,7 +17,8 @@ const routes = {
     '/ccod-account-adjust': ccodAccoutAdjust,
     '/settlement-order-manage/bottom-ticket-manage': bottomTicketManage,
     '/settlement-order-manage/balance-account-manage': balanceAccountManage,
-    '/settlement-order-manage/invoice-manage': invoiceManage
+    '/settlement-order-manage/invoice-manage': invoiceManage,
+    '/settlement-order-manage/cost-payment-manage': costPaymentManage
 };
 
 export default routes;
