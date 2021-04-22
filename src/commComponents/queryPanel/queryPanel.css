@@ -1,0 +1,19 @@
+.query-panel__root {
+    position: relative;
+    padding: 18px 10px 0;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+    overflow: hidden;
+    transition: height .3s;
+    margin: 0 0 10px;
+}
+
+.query-panel__btn-group {
+    text-align: right;
+    min-height: 10px;
+}
+
+.query-panel__btn {
+    display: inline-block;
+    margin-left: 10px;
+}

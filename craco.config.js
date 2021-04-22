@@ -10,7 +10,9 @@ module.exports = {
             '@Views' : path.resolve('src/views'),
             '@Router' : path.resolve('src/router'),
             '@Utils' : path.resolve('src/utils'),
-            '@MainComponents' : path.resolve('src/views/main/components')
+            '@MainComponents' : path.resolve('src/views/main/components'),
+            '@CommComponents' : path.resolve('src/commComponents'),
+            '@Styles' : path.resolve('src/styles')
         }
     }
 }

@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import { HashRouter , Route, Switch } from 'react-router-dom';
 import PrivateRoute from '@Router/PrivateRoute';
 
+import '@Styles/common.css';
+
 import Login from './views/login/login';
 import Main from './views/main/main';
 
