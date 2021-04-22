@@ -7,6 +7,7 @@ import ccodAccoutAdjust from '@Views/main/components/acceptOrderManage/ccodAccou
 //结算工单
 import bottomTicketManage from '@Views/main/components/settlementOrderManage/bottomTicketManage/bottomTicketManage'
 import balanceAccountManage from '@Views/main/components/settlementOrderManage/balanceAccountManage/balanceAccountManage'
+import invoiceManage from '@Views/main/components/settlementOrderManage/invoiceManage/invoiceManage'
 
 const routes = {
     '/my-order': myOrder,
@@ -14,7 +15,8 @@ const routes = {
     '/ccod-business-apply': ccodBusinessApply,
     '/ccod-account-adjust': ccodAccoutAdjust,
     '/settlement-order-manage/bottom-ticket-manage': bottomTicketManage,
-    '/settlement-order-manage/balance-account-manage': balanceAccountManage
+    '/settlement-order-manage/balance-account-manage': balanceAccountManage,
+    '/settlement-order-manage/invoice-manage': invoiceManage
 };
 
 export default routes;
