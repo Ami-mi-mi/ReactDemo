@@ -9,6 +9,7 @@ import RoutesData from '@Router/routes';
 import * as $Api from './api';
 
 import { authController } from '@Utils/authController';
+import { filterMenu } from '@Js/permission';
 
 const { Header, Sider, Content } = Layout;
 
@@ -31,7 +32,7 @@ class Main extends React.Component {
             const {loginUser = {}, platformList = []} = globalInfo.rows;
 
             this.setState({
-                MenuData: MenuTree.rows,
+                MenuData: filterMenu(MenuTree.rows),
                 loginUser: loginUser
             });
 
