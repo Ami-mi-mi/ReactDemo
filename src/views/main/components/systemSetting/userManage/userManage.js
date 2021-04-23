@@ -8,7 +8,7 @@ class userManage extends React.Component {
     render() {
         const layout = {
             labelCol: { span: 8 }
-          };
+        };
 
         return (
             <div className="inner-layout__main-content">
@@ -33,32 +33,6 @@ class userManage extends React.Component {
                                 </Form.Item>
                             </Col>
 
-                            <Col span={8}>
-                                <Form.Item
-                                    label="登录账号"
-                                    name="username"
-                                >
-                                    <Input />
-                                </Form.Item>
-                            </Col>
-
-                            <Col span={8}>
-                                <Form.Item
-                                    label="登录账号"
-                                    name="username"
-                                >
-                                    <Input />
-                                </Form.Item>
-                            </Col>
-
-                            <Col span={8}>
-                                <Form.Item
-                                    label="登录账号"
-                                    name="username"
-                                >
-                                    <Input />
-                                </Form.Item>
-                            </Col>
                         </Row>
                         
                     </Form>
