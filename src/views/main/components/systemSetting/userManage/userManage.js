@@ -153,7 +153,7 @@ class UserManage extends React.Component {
                     </Form>
                 </QueryPanel>
     
-                <TableComponent columns={columns} data={this.state.tableData}></TableComponent>
+                <TableComponent columns={columns} data={this.state.tableData} type="checkBox"></TableComponent>
             </div>
         )
     }

@@ -6,7 +6,9 @@ class TableComponent extends React.Component {
         super(props);
 
         this.state = {
-            dataSource: []
+            dataSource: [],
+            type: props.type || '',
+            selectedRowKeys: []
         }
     }
 
@@ -16,10 +18,26 @@ class TableComponent extends React.Component {
        };
     }
 
+    onSelectChange = selectedRowKeys => {
+        this.setState({ selectedRowKeys });
+    };
+
 
     render() {
+        const { selectedRowKeys, type } = this.state;
+        let rowSelection;
+
+        if(type) {
+            rowSelection = {
+                selectedRowKeys,
+                onChange: this.onSelectChange
+            };
+        }
+        
         return(
             <Table
+            rowSelection={rowSelection}
+            rowKey={row => row.id}
             columns={this.props.columns}
             dataSource={this.state.dataSource}
             scroll={{ y: 400 }}
