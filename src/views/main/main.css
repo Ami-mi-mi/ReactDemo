@@ -30,3 +30,17 @@
 .mainHeaderInfoAgentId {
     margin-right: 10px;
 }
+
+.mainContent {
+    width: calc(100% - 200px);
+    height: 100%;
+    transition: width .5s;
+    overflow: auto;
+}
+
+.mainSide {
+    width: 200px;
+    height: 100%;
+    transition: width .5s;
+    overflow: auto;
+}

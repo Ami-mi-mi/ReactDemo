@@ -13,7 +13,12 @@ const main = {
     updatePass: '/user/updatePassword'
 };
 
+const userManage = {
+    query: '/user/query'
+}
+
 export {
      SSO,
-     main
+     main,
+     userManage
 };

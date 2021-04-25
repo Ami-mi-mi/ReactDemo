@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { HashRouter , Route, Switch } from 'react-router-dom';
 import PrivateRoute from '@Router/PrivateRoute';
 
+import 'antd/dist/antd.css';
 import '@Styles/common.css';
 
 import Login from './views/login/login';

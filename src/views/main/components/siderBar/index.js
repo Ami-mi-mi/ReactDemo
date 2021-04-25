@@ -42,14 +42,13 @@ class SiderBar extends React.Component {
 
     render() {
         return (
-            <div style={{ width: 200 }}>
-                <Menu
-                mode="inline"
-                theme="dark"
-                >
-                    {this.state.MenuData && this.state.MenuData.map(item => item.children && item.children.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item))}
-                </Menu>
-            </div>
+            <Menu
+            mode="inline"
+            theme="dark"
+            className="mainSide"
+            >
+                {this.state.MenuData && this.state.MenuData.map(item => item.children && item.children.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item))}
+            </Menu>
         );
     }
 }

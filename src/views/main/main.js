@@ -98,7 +98,7 @@ class Main extends React.Component {
                     <Sider>
                         <SiderBar siderMenu={this.state.MenuData}/>
                     </Sider>
-                    <Content>
+                    <Content className="mainContent">
                             <Switch>
                                 {
                                     this.state.MenuData && this.state.MenuData.map(item => this.renderRouteComponent(item))
