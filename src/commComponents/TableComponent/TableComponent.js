@@ -8,13 +8,26 @@ class TableComponent extends React.Component {
         this.state = {
             dataSource: [],
             type: props.type || '',
-            selectedRowKeys: []
+            selectedRowKeys: [],
+            pagination: {
+                current: 1,
+                pageSize: 10,
+                showTotal: (total) => `共${total}条`,
+                onChange: this.handleChange
+            }
         }
+
+        this.handleChange = this.handleChange.bind(this);
     }
 
     static getDerivedStateFromProps(props, state) {
+        console.log(props)
        return {
-            dataSource: props.data
+            dataSource: props.data.rows || [],
+            pagination: {
+                ...state.pagination,
+                total: props.data.total
+            }
        };
     }
 
@@ -22,9 +35,22 @@ class TableComponent extends React.Component {
         this.setState({ selectedRowKeys });
     };
 
+    handleChange = (page, pageSize) => {
+        this.setState({ 
+            pagination: {
+                ...this.state.pagination,
+                current: page,
+                pageSize
+            }
+        });
+
+        this.props.onChange(page, pageSize);
+    }
+
 
     render() {
-        const { selectedRowKeys, type } = this.state;
+        const { selectedRowKeys, type, pagination } = this.state;
+        console.log(pagination)
         let rowSelection;
 
         if(type) {
@@ -39,8 +65,9 @@ class TableComponent extends React.Component {
             rowSelection={rowSelection}
             rowKey={row => row.id}
             columns={this.props.columns}
+            pagination={pagination}
             dataSource={this.state.dataSource}
-            scroll={{ y: 400 }}
+            scroll={{ y: 700 }}
         />
         );
     }

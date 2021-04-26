@@ -30,26 +30,43 @@ class UserManage extends React.Component {
         }
 
         this.formRef = React.createRef();
+
+        this.handlePageSizeChange = this.handlePageSizeChange.bind(this);
+        this.queryTable = this.queryTable.bind(this);
+        this.clearForm = this.clearForm.bind(this);
     }
 
     componentDidMount() {
         this.queryTable();
     }
 
-    queryTable = () => {
+    queryUserList = () => {
         const currentData = this.formRef.current.getFieldValue();
 
         const params = Object.assign({}, this.initialFormData, this.pageInfo, currentData);
 
         $api._queryUser(params).then(data => {
             this.setState({
-                tableData: data.rows || []
+                tableData: data || {}
             })
         });
     }
 
+    queryTable = () => {
+        this.pageInfo.page = 1;
+
+        this.queryUserList();
+    }
+
     clearForm = () => {
-    
+        this.formRef.current.resetFields();
+    }
+
+    handlePageSizeChange = (current, pageSize) => {
+        this.pageInfo.page = current;
+        this.pageInfo.rows = pageSize;
+
+        this.queryUserList();
     }
 
     render() {
@@ -110,7 +127,7 @@ class UserManage extends React.Component {
                                     label="登录账号"
                                     name="loginName"
                                 >
-                                    <Input />
+                                    <Input allowClear/>
                                 </Form.Item>
                             </Col>
     
@@ -119,7 +136,7 @@ class UserManage extends React.Component {
                                     label="姓名"
                                     name="name"
                                 >
-                                    <Input />
+                                    <Input allowClear/>
                                 </Form.Item>
                             </Col>
     
@@ -128,7 +145,7 @@ class UserManage extends React.Component {
                                     label="坐席工号"
                                     name="agentId"
                                 >
-                                    <Input />
+                                    <Input allowClear/>
                                 </Form.Item>
                             </Col>
     
@@ -137,7 +154,7 @@ class UserManage extends React.Component {
                                     label="手机号码"
                                     name="telphone"
                                 >
-                                    <Input />
+                                    <Input allowClear/>
                                 </Form.Item>
                             </Col>
     
@@ -146,14 +163,14 @@ class UserManage extends React.Component {
                                     label="邮箱"
                                     name="email"
                                 >
-                                    <Input />
+                                    <Input allowClear/>
                                 </Form.Item>
                             </Col>
                         </Row>   
                     </Form>
                 </QueryPanel>
     
-                <TableComponent columns={columns} data={this.state.tableData} type="checkBox"></TableComponent>
+                <TableComponent columns={columns} data={this.state.tableData} type="checkBox" onChange={this.handlePageSizeChange}></TableComponent>
             </div>
         )
     }
