@@ -1,6 +1,12 @@
 import React from 'react';
 import { Table } from 'antd';
-
+/**
+ * 父组件调用需要传入的参数：
+ * columns 需要展示的字段
+ * data    数据列表
+ * type    checkbox/radio/null type不传时，不展示选择按钮
+ * onchange 事件，分页，当页面和size改变时，出触发的事件，会回传参数（page, pageSize）到父组件事件中
+ * **/
 class TableComponent extends React.Component {
     constructor(props) {
         super(props);
@@ -21,7 +27,6 @@ class TableComponent extends React.Component {
     }
 
     static getDerivedStateFromProps(props, state) {
-        console.log(props)
        return {
             dataSource: props.data.rows || [],
             pagination: {
@@ -50,7 +55,6 @@ class TableComponent extends React.Component {
 
     render() {
         const { selectedRowKeys, type, pagination } = this.state;
-        console.log(pagination)
         let rowSelection;
 
         if(type) {
