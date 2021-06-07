@@ -70,10 +70,11 @@ class UserManage extends React.Component {
     }
 
     render() {
+
         const layout = {
             labelCol: { span: 8 }
         };
-    
+
         const columns = [
             {
                 title: '登录账号',
@@ -113,9 +114,11 @@ class UserManage extends React.Component {
             {
                 title: '状态',
                 width: 100,
-                dataIndex: 'status'
+                dataIndex: 'status',
+                render: (status) => status === '1' ? '启用' : '禁用'
             }
         ];
+    
 
         return (
             <div className="inner-layout__main-content">
