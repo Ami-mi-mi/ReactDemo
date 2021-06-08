@@ -13,10 +13,10 @@ class SiderBar extends React.Component {
         }
     }
 
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-            MenuData: nextProps.siderMenu
-        });
+    static getDerivedStateFromProps(props) {
+        return {
+            MenuData: props.siderMenu
+        }
     }
 
     renderSubMenu = (item) => {
@@ -35,7 +35,7 @@ class SiderBar extends React.Component {
     renderMenuItem = (item) => {
         return (
             <Menu.Item key={item.id}>
-                <Link to={item.actionUrl}>{item.name}</Link>
+                <Link to={item.actionUrl} replace>{item.name}</Link>
             </Menu.Item>
         );
     };
