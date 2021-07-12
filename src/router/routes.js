@@ -10,6 +10,10 @@ import balanceAccountManage from '@MainComponents/settlementOrderManage/balanceA
 import invoiceManage from '@MainComponents/settlementOrderManage/invoiceManage/invoiceManage'
 import costPaymentManage from '@MainComponents/settlementOrderManage/costPaymentManage/costPaymentManage'
 
+//企业信息管理
+import entManage from '@MainComponents/ent-manage/ent-manage'
+
+
 //系统设置-用户管理
 import userManage from '@MainComponents/systemSetting/userManage/userManage'
 
@@ -23,7 +27,8 @@ const routes = {
     '/settlement-order-manage/balance-account-manage': balanceAccountManage,
     '/settlement-order-manage/invoice-manage': invoiceManage,
     '/settlement-order-manage/cost-payment-manage': costPaymentManage,
-    '/user-manage': userManage
+    '/user-manage': userManage,
+    '/enterprise-manage': entManage
 };
 
 export default routes;
