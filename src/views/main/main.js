@@ -80,6 +80,13 @@ class Main extends React.Component {
                 <Header className="mainHeader">
                     <div className="mainHeaderTitle">React Demo</div>
 
+                    <div className="mainTagManageContainer">
+                        <div className="mainTagListBox">
+                           1213
+                            
+                        </div>
+                    </div>
+
                     <div className="mainHeaderInfoBox">
                         <Tag className="mainHeaderInfoAgentId">
                             工号 - {this.state.loginUser.agentId}
@@ -89,8 +96,6 @@ class Main extends React.Component {
                         <a className="ant-dropdown-link" onClick={e => e.preventDefault()} href="#/">
                             {this.state.loginUser.name} <DownOutlined />
                         </a>
-                        
-                             
                         </Dropdown>
                     </div>
                 </Header>
